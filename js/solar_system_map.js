@@ -22,7 +22,7 @@ function initializeCanvas() {
     ctx.lineWidth = 1 / SCALE;
 }
 
-const date_time = ctx.getElementById("dateTime");
+const date_time = document.getElementById("dateTime");
 const date_time_array = date_time.value.split("T");
 
 function GET(date, time="00:00:00") {
