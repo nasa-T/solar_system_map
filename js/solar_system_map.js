@@ -1,6 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+
 const colorSwitch = {
     "mercury": "gray",
     "venus": "coral",
@@ -22,20 +23,26 @@ function initializeCanvas() {
 }
 
 const date_time = ctx.getElementById("dateTime");
+const date_time_array = date_time.value.split("T");
 
-function GET(
-
-const settings = {
+function GET(date, time="00:00:00") {
+    var timeFormatted = time.replace(/:/g, "%3A");
+    const settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=42.7115&longitude=-73.2017&from_date=2023-01-23&to_date=2023-01-23&elevation=285&time=12%3A00%3A00",
+	"url": "https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=42.7115&longitude=-73.2017&from_date=${date}&to_date=${date}&elevation=285&time=${timeFormatted}",
 	"method": "GET",
 	"headers": {
-		"X-RapidAPI-Key": "1948f0adcfmsha6c2f85eda754c3p1ebb93jsn77a08f207f83",
-		"X-RapidAPI-Host": "astronomy.p.rapidapi.com"
+	    "X-RapidAPI-Key": "1948f0adcfmsha6c2f85eda754c3p1ebb93jsn77a08f207f83",
+	    "X-RapidAPI-Host": "astronomy.p.rapidapi.com"
 	}
-};
+    };
 
-$.ajax(settings).done(function (response) {
+    $.ajax(settings).done(function (response) {
 	console.log(response);
-});
+    });
+}
+
+function test() {
+    GET(date_time_array[0], date_time_array[1]);
+}
