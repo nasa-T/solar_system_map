@@ -2,60 +2,29 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Gravity with "Vector Fields"</title>
+    <title>Map of the Solar System</title>
     <style>
-        canvas { background-color: lightblue; }
+        canvas { background-color: indigo; }
     </style>
 </head>
 <body>
 <main>
     <canvas id="canvas" height="500" width="500"></canvas>
     <div>
-        <button onclick="placeBodies()">
-            Add Body
+        <label for="dateTime">
+	    Input a Date and Time:
+        </label>
+
+        <input type="datetime-local" id="dateTime"></input>
+        <button onclick="drawObjects(True)">
+            Geocentric
         </button>
-        <button onclick="removeBody()">
-            Remove Body
-        </button>
-    </div>
-    <div>
-        <button onclick="stopBall(1)">
-            Stop the Ball
-        </button>
-        <button onclick="stopBall(0)">
-            Reset the Ball
-        </button>
-        <button onclick="stopBall(-1)">
-            Change Positions
+        <button onclick="drawObjects(False)">
+            Heliocentric
         </button>
     </div>
-    <div>
-        <button onclick="panX(50);">
-            Pan Left
-        </button>
-        <button onclick="panX(-50);">
-            Pan Right
-        </button>
-    </div>
-    <div>
-        <button onclick="panY(50);">
-            Pan Up
-        </button>
-        <button onclick="panY(-50);">
-            Pan Down
-        </button>
-    </div>
-    <div>
-        <button onclick="zoom(1);">
-            Zoom In
-        </button>
-        <button onclick="zoom(-1);">
-            Zoom Out
-        </button>
-    </div>
-</main>
-<script src="gravityInitial.js"></script>
-<script src="gravity.js"></script>
+    </main>
+<script src="solar_system_map.js"></script>
 <!-- <script> -->
 <!-- var canvas = document.getElementById("canvas"); -->
 <!-- var ctx = canvas.getContext("2d"); -->
