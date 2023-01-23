@@ -1,40 +1,29 @@
-// import axios from "./node_modules/axios";
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
 
-// const options = {
-//   method: 'GET',
-//   url: 'https://astronomy.p.rapidapi.com/api/v2/bodies/positions',
-//   params: {
-//     latitude: '33.775867',
-//     longitude: '-84.39733',
-//     from_date: '2017-12-20',
-//     to_date: '2017-12-21',
-//     elevation: '166',
-//     time: '12:00:00'
-//   },
-//   headers: {
-//     'X-RapidAPI-Key': '1948f0adcfmsha6c2f85eda754c3p1ebb93jsn77a08f207f83',
-//     'X-RapidAPI-Host': 'astronomy.p.rapidapi.com'
-//   }
-// };
+const colorSwitch = {
+    "mercury": "gray",
+    "venus": "coral",
+    "earth": "blue",
+    "mars": "red",
+    "jupiter": "orange",
+    "saturn": "peru",
+    "uranus": "paleturquoise",
+    "neptune": "slateblue",
+    "pluto": "slategray",
+    "moon": "silver"
+};
 
-// axios.request(options).then(function (response) {
-// 	console.log(response.data);
-// }).catch(function (error) {
-// 	console.error(error);
-// });
+const SCALE = canvas.width / 101;
 
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '1948f0adcfmsha6c2f85eda754c3p1ebb93jsn77a08f207f83',
-// 		'X-RapidAPI-Host': 'astronomy.p.rapidapi.com'
-// 	}
-// };
+function initializeCanvas() {
+    ctx.transform(SCALE, 0, 0, -SCALE, canvas.width / 2, canvas.height / 2);
+    ctx.lineWidth = 1 / SCALE;
+}
 
-// fetch('https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=33.775867&longitude=-84.39733&from_date=2017-12-20&to_date=2017-12-21&elevation=166&time=12%3A00%3A00', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
+const date_time = ctx.getElementById("dateTime");
+
+function GET(
 
 const settings = {
 	"async": true,
