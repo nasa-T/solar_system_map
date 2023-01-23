@@ -39,7 +39,7 @@
 const settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=42.7115&longitude=-73.2017&from_date=2022-1-23&to_date=2022-1-23&time=12%3A00%3A00&elevation=485",
+	"url": "https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=42.7115&longitude=-73.2017&from_date=2017-12-20&to_date=2017-12-21&time=12%3A00%3A00&elevation=485",
 	"method": "GET",
 	"headers": {
 		"X-RapidAPI-Key": "1948f0adcfmsha6c2f85eda754c3p1ebb93jsn77a08f207f83",
