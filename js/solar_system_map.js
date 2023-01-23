@@ -45,10 +45,11 @@ function GET(date, time="00:00:00") {
 
 function test() {
     const date_time = document.getElementById("dateTime").value.toString();
+    let date_time_array;
     if (date_time.includes("T")) {
-        const date_time_array = date_time.split("T");
+        date_time_array = date_time.split("T");
     } else {
-        const date_time_array = [date_time];
+        date_time_array = [date_time];
     }
     console.log(date_time_array);
     GET(date_time_array[0], date_time_array[1]);
