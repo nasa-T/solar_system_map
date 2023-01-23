@@ -5,7 +5,7 @@ The Astronomy API (https://docs.astronomyapi.com/) is an API that has the potent
 I will use JavaScript and HTML to implement this Solar System map.
 
 Javascript dependencies:
-axios
+jQuery
 
 JavaScript File Plan:
 
