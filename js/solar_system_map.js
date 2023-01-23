@@ -1,3 +1,4 @@
+
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
@@ -22,15 +23,14 @@ function initializeCanvas() {
     ctx.lineWidth = 1 / SCALE;
 }
 
-const date_time = document.getElementById("dateTime");
-const date_time_array = date_time.value.split("T");
 
 function GET(date, time="00:00:00") {
     var timeFormatted = time.replace(/:/g, "%3A");
+    console.log(date);
     const settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=42.7115&longitude=-73.2017&from_date=${date}&to_date=${date}&elevation=285&time=${timeFormatted}",
+	"url": `https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=42.7115&longitude=-73.2017&from_date=${date}&to_date=${date}&elevation=285&time=${timeFormatted}`,
 	"method": "GET",
 	"headers": {
 	    "X-RapidAPI-Key": "1948f0adcfmsha6c2f85eda754c3p1ebb93jsn77a08f207f83",
@@ -44,5 +44,12 @@ function GET(date, time="00:00:00") {
 }
 
 function test() {
+    const date_time = document.getElementById("dateTime").value.toString();
+    if (date_time.includes("T")) {
+        const date_time_array = date_time.split("T");
+    } else {
+        const date_time_array = [date_time];
+    }
+    console.log(date_time_array);
     GET(date_time_array[0], date_time_array[1]);
 }
