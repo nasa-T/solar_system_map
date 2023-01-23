@@ -4,16 +4,17 @@ var ctx = canvas.getContext("2d");
 
 
 const colorSwitch = {
-    "mercury": "gray",
-    "venus": "coral",
-    "earth": "blue",
-    "mars": "red",
-    "jupiter": "orange",
-    "saturn": "peru",
-    "uranus": "paleturquoise",
-    "neptune": "slateblue",
-    "pluto": "slategray",
-    "moon": "silver"
+    "Mercury": "gray",
+    "Venus": "coral",
+    "Earth": "blue",
+    "Mars": "red",
+    "Jupiter": "orange",
+    "Saturn": "peru",
+    "Uranus": "paleturquoise",
+    "Neptune": "slateblue",
+    "Pluto": "slategray",
+    "Moon": "silver",
+    "Sun": "yellow"
 };
 
 const SCALE = canvas.width / 101;
