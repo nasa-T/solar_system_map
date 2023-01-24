@@ -44,7 +44,7 @@ function GET(date, time="00:00:00") {
 }
 
 function RAtoAngle(RA) {
-    return RA/24 * 360;
+    return RA * 15;
 }
 
 function earthFrameLoc(RA, dist) {
@@ -71,7 +71,7 @@ function makeBodies(data, geocentric) {
 	    }
 	    
 	    var objName = object.name;
-	    var objPos = earthFrameLoc(parseFloat(object.position.equatorial.rightAscension.hours), parseFloat(object.distance.fromEarth.au));
+	    var objPos = earthFrameLoc(RAtoAngle(parseFloat(object.position.equatorial.rightAscension.hours)), parseFloat(object.distance.fromEarth.au));
 	    var mag = parseFloat(object.extraInfo.magnitude);
 	    if (object.name == "Sun") {
 		bodies.push({
@@ -104,7 +104,7 @@ function makeBodies(data, geocentric) {
 		    y: 0,
 		    dist: object.distance.fromEarth.au		    
 		});
-		sunPos = earthFrameLoc(parseFloat(object.position.equatorial.rightAscension.hours), parseFloat(object.distance.fromEarth.au));
+		sunPos = earthFrameLoc(RAtoAngle(parseFloat(object.position.equatorial.rightAscension.hours)), parseFloat(object.distance.fromEarth.au));
 		theSun = object;
 		break;
 	    }
@@ -125,7 +125,7 @@ function makeBodies(data, geocentric) {
 		continue;
 	    }
 	    var objName = object.name;
-	    var objPos = earthFrameLoc(parseFloat(object.position.equatorial.rightAscension.hours), parseFloat(object.distance.fromEarth.au));
+	    var objPos = earthFrameLoc(RAtoAngle(parseFloat(object.position.equatorial.rightAscension.hours)), parseFloat(object.distance.fromEarth.au));
 	    var mag = parseFloat(object.extraInfo.magnitude);
 	    bodies.push({
 		color: colorSwitch[objName],
