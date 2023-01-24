@@ -15,7 +15,7 @@ const colorSwitch = {
     "Sun": "yellow"
 };
 
-const SCALE = canvas.width / 20;
+const SCALE = canvas.width / 60;
 
 function initializeCanvas() {
     canvas.width = canvas.width;
@@ -136,12 +136,12 @@ function makeBodies(data, geocentric) {
 	    });
 	}
     }
-    for (var i = 0; i < bodies.length; i++) {
-	if (bodies[i].color == "silver") {
-	    bodies[i].radius = 200 / SCALE;
-	    bodies[i].color = "green";
-	}
-    }
+    // for (var i = 0; i < bodies.length; i++) {
+    // 	if (bodies[i].color == "silver") {
+    // 	    bodies[i].radius = 300 / SCALE;
+    // 	    bodies[i].color = "green";
+    // 	}
+    // }
     return bodies;
 }
 
