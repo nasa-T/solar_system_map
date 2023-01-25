@@ -37,7 +37,7 @@ function GET(date, time="00:00:00") {
 	}
     };
 
-    $.ajax(settings).done(function (response) {
+    return $.ajax(settings).done(function (response) {
     console.log(response);
 	return response;
    });
