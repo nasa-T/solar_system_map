@@ -45,13 +45,14 @@ function GET(date, time="00:00:00") {
 }
 
 function RAtoAngle(RA) {
+    console.log(RA / 24 * 360);
     return RA / 24 * 360;
 }
 
 function earthFrameLoc(RA, dist) {
     return {
-	x: dist*Math.cos(RA),
-	y: dist*Math.sin(RA)
+	x: dist*Math.cos(RA * Math.PI / 180),
+	y: dist*Math.sin(RA * Math.PI / 180)
     };
 }
 
@@ -73,6 +74,7 @@ function makeBodies(data, geocentric) {
 	    
 	    var objName = object.name;
 	    var objPos = earthFrameLoc(RAtoAngle(parseFloat(object.position.equatorial.rightAscension.hours)), parseFloat(object.distance.fromEarth.au));
+	    console.log(objName, Math.sqrt(objPos.x**2 + objPos.y**2));
 	    var mag = parseFloat(object.extraInfo.magnitude);
 	    if (object.name == "Sun") {
 		bodies.push({
