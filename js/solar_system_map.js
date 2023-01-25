@@ -169,695 +169,695 @@ function drawBodies(data, geocentric) {
 function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
-    const data = GET(date_time_array[0], date_time_array[1]);
-    /* const data = {
+    // const data = GET(date_time_array[0], date_time_array[1]);
+    const data = {
   "data": {
-      "observer": {
-	  "location": {
-              "longitude": -73.2017,
-              "elevation": 285,
-              "latitude": 42.7115
-	  }
-      },
-      "dates": {
-	  "from": "2002-03-28T09:39:00.000-05:00",
-	  "to": "2002-03-28T09:39:00.000-05:00"
-      },
-      "table": {
-	  "rows": [
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "149322098.18920",
-				  "au": "0.99816"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "39° 46' 12\"",
-				      "degrees": "39.77"
-				  },
-				  "azimuth": {
-				      "string": "132° 17' 24\"",
-				      "degrees": "132.29"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Psc",
-				  "name": "Pisces",
-				  "id": "psc"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "0.47",
-				      "string": "00h 28m 12s"
-				  },
-				  "declination": {
-				      "string": "3° 3' 36\"",
-				      "degrees": "3.06"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "39° 46' 12\"",
-				      "degrees": "39.77"
-				  },
-				  "azimuth": {
-				      "string": "132° 17' 24\"",
-				      "degrees": "132.29"
-				  }
-			      }
-			  },
-			  "name": "Sun",
-			  "extraInfo": {
-			      "elongation": 0,
-			      "magnitude": -26.74607
-			  },
-			  "id": "sun"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Sun",
-		      "id": "sun"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "360812.00706",
-				  "au": "0.00241"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "-36° 17' 24\"",
-				      "degrees": "-35.71"
-				  },
-				  "azimuth": {
-				      "string": "316° 0' 36\"",
-				      "degrees": "316.01"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Vir",
-				  "name": "Virgo",
-				  "id": "vir"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "12.43",
-				      "string": "12h 25m 48s"
-				  },
-				  "declination": {
-				      "string": "1° 34' 48\"",
-				      "degrees": "1.58"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "-36° 17' 24\"",
-				      "degrees": "-35.71"
-				  },
-				  "azimuth": {
-				      "string": "316° 0' 36\"",
-				      "degrees": "316.01"
-				  }
-			      }
-			  },
-			  "name": "Moon",
-			  "extraInfo": {
-			      "elongation": 174.64866,
-			      "magnitude": -12.74034,
-			      "phase": {
-				  "fraction": "0.000",
-				  "string": "Waxing Gibbous",
-				  "angel": "177.7453"
-			      }
-			  },
-			  "id": "moon"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Moon",
-		      "id": "moon"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "199856442.80496",
-				  "au": "1.33596"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "38° 44' 24\"",
-				      "degrees": "38.74"
-				  },
-				  "azimuth": {
-				      "string": "144° 55' 12\"",
-				      "degrees": "144.92"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Psc",
-				  "name": "Pisces",
-				  "id": "psc"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "23.94",
-				      "string": "23h 56m 24s"
-				  },
-				  "declination": {
-				      "string": "-3° 25' 12\"",
-				      "degrees": "-2.58"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "38° 44' 24\"",
-				      "degrees": "38.74"
-				  },
-				  "azimuth": {
-				      "string": "144° 55' 12\"",
-				      "degrees": "144.92"
-				  }
-			      }
-			  },
-			  "name": "Mercury",
-			  "extraInfo": {
-			      "elongation": 9.82364,
-			      "magnitude": -0.99704
-			  },
-			  "id": "mercury"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Mercury",
-		      "id": "mercury"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "240242877.44464",
-				  "au": "1.60592"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "34° 6' 36\"",
-				      "degrees": "34.11"
-				  },
-				  "azimuth": {
-				      "string": "111° 10' 48\"",
-				      "degrees": "111.18"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Psc",
-				  "name": "Pisces",
-				  "id": "psc"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "1.59",
-				      "string": "01h 35m 24s"
-				  },
-				  "declination": {
-				      "string": "9° 12' 36\"",
-				      "degrees": "9.21"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "34° 6' 36\"",
-				      "degrees": "34.11"
-				  },
-				  "azimuth": {
-				      "string": "111° 10' 48\"",
-				      "degrees": "111.18"
-				  }
-			      }
-			  },
-			  "name": "Venus",
-			  "extraInfo": {
-			      "elongation": 17.75107,
-			      "magnitude": -3.85299
-			  },
-			  "id": "venus"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Venus",
-		      "id": "venus"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "6368.62706",
-				  "au": "0.00004"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "-90° 11' 24\"",
-				      "degrees": "-89.81"
-				  },
-				  "azimuth": {
-				      "string": "0° 0' 0\"",
-				      "degrees": "0.00"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Vel",
-				  "name": "Vela",
-				  "id": "vel"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "10.16",
-				      "string": "10h 09m 36s"
-				  },
-				  "declination": {
-				      "string": "-43° 29' 24\"",
-				      "degrees": "-42.51"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "-90° 11' 24\"",
-				      "degrees": "-89.81"
-				  },
-				  "azimuth": {
-				      "string": "0° 0' 0\"",
-				      "degrees": "0.00"
-				  }
-			      }
-			  },
-			  "name": "Earth",
-			  "extraInfo": {
-			      "elongation": null,
-			      "magnitude": null
-			  },
-			  "id": "earth"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Earth",
-		      "id": "earth"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "319244128.36903",
-				  "au": "2.13402"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "23° 48' 36\"",
-				      "degrees": "23.81"
-				  },
-				  "azimuth": {
-				      "string": "86° 59' 24\"",
-				      "degrees": "86.99"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Ari",
-				  "name": "Aries",
-				  "id": "ari"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "3.08",
-				      "string": "03h 04m 48s"
-				  },
-				  "declination": {
-				      "string": "17° 58' 12\"",
-				      "degrees": "17.97"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "23° 48' 36\"",
-				      "degrees": "23.81"
-				  },
-				  "azimuth": {
-				      "string": "86° 59' 24\"",
-				      "degrees": "86.99"
-				  }
-			      }
-			  },
-			  "name": "Mars",
-			  "extraInfo": {
-			      "elongation": 41.17882,
-			      "magnitude": 1.45785
-			  },
-			  "id": "mars"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Mars",
-		      "id": "mars"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "766315295.56850",
-				  "au": "5.12250"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "-7° 52' 48\"",
-				      "degrees": "-6.12"
-				  },
-				  "azimuth": {
-				      "string": "49° 10' 12\"",
-				      "degrees": "49.17"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Gem",
-				  "name": "Gemini",
-				  "id": "gem"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "6.49",
-				      "string": "06h 29m 24s"
-				  },
-				  "declination": {
-				      "string": "23° 26' 24\"",
-				      "degrees": "23.44"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "-7° 52' 48\"",
-				      "degrees": "-6.12"
-				  },
-				  "azimuth": {
-				      "string": "49° 10' 12\"",
-				      "degrees": "49.17"
-				  }
-			      }
-			  },
-			  "name": "Jupiter",
-			  "extraInfo": {
-			      "elongation": 89.04721,
-			      "magnitude": -2.21585
-			  },
-			  "id": "jupiter"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Jupiter",
-		      "id": "jupiter"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "1417017622.16436",
-				  "au": "9.47218"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "9° 24' 0\"",
-				      "degrees": "9.40"
-				  },
-				  "azimuth": {
-				      "string": "70° 35' 24\"",
-				      "degrees": "70.59"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Tau",
-				  "name": "Taurus",
-				  "id": "tau"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "4.58",
-				      "string": "04h 34m 48s"
-				  },
-				  "declination": {
-				      "string": "20° 31' 12\"",
-				      "degrees": "20.52"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "9° 24' 0\"",
-				      "degrees": "9.40"
-				  },
-				  "azimuth": {
-				      "string": "70° 35' 24\"",
-				      "degrees": "70.59"
-				  }
-			      }
-			  },
-			  "name": "Saturn",
-			  "extraInfo": {
-			      "elongation": 62.41263,
-			      "magnitude": -0.00054
-			  },
-			  "id": "saturn"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Saturn",
-		      "id": "saturn"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "3103134426.59350",
-				  "au": "20.74317"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "34° 7' 48\"",
-				      "degrees": "34.13"
-				  },
-				  "azimuth": {
-				      "string": "183° 16' 48\"",
-				      "degrees": "183.28"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Cap",
-				  "name": "Capricornus",
-				  "id": "cap"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "21.97",
-				      "string": "21h 58m 12s"
-				  },
-				  "declination": {
-				      "string": "-14° 51' 36\"",
-				      "degrees": "-13.14"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "34° 7' 48\"",
-				      "degrees": "34.13"
-				  },
-				  "azimuth": {
-				      "string": "183° 16' 48\"",
-				      "degrees": "183.28"
-				  }
-			      }
-			  },
-			  "name": "Uranus",
-			  "extraInfo": {
-			      "elongation": 40.59843,
-			      "magnitude": 5.90346
-			  },
-			  "id": "uranus"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Uranus",
-		      "id": "uranus"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "4581112210.52203",
-				  "au": "30.62284"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "27° 9' 0\"",
-				      "degrees": "27.15"
-				  },
-				  "azimuth": {
-				      "string": "201° 0' 0\"",
-				      "degrees": "201.00"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Cap",
-				  "name": "Capricornus",
-				  "id": "cap"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "20.85",
-				      "string": "20h 51m 00s"
-				  },
-				  "declination": {
-				      "string": "-18° 27' 0\"",
-				      "degrees": "-17.55"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "27° 9' 0\"",
-				      "degrees": "27.15"
-				  },
-				  "azimuth": {
-				      "string": "201° 0' 0\"",
-				      "degrees": "201.00"
-				  }
-			      }
-			  },
-			  "name": "Neptune",
-			  "extraInfo": {
-			      "elongation": 57.31691,
-			      "magnitude": 7.95238
-			  },
-			  "id": "neptune"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Neptune",
-		      "id": "neptune"
-		  }
-              },
-              {
-		  "cells": [
-		      {
-			  "date": "2002-03-28T09:39:00.000-05:00",
-			  "distance": {
-			      "fromEarth": {
-				  "km": "4509084483.01918",
-				  "au": "30.14137"
-			      }
-			  },
-			  "position": {
-			      "horizontal": {
-				  "altitude": {
-				      "string": "2° 18' 36\"",
-				      "degrees": "2.31"
-				  },
-				  "azimuth": {
-				      "string": "250° 21' 36\"",
-				      "degrees": "250.36"
-				  }
-			      },
-			      "constellation": {
-				  "short": "Oph",
-				  "name": "Ophiuchus",
-				  "id": "oph"
-			      },
-			      "equatorial": {
-				  "rightAscension": {
-				      "hours": "17.16",
-				      "string": "17h 09m 36s"
-				  },
-				  "declination": {
-				      "string": "-13° 7' 48\"",
-				      "degrees": "-12.87"
-				  }
-			      },
-			      "horizonal": {
-				  "altitude": {
-				      "string": "2° 18' 36\"",
-				      "degrees": "2.31"
-				  },
-				  "azimuth": {
-				      "string": "250° 21' 36\"",
-				      "degrees": "250.36"
-				  }
-			      }
-			  },
-			  "name": "Pluto",
-			  "extraInfo": {
-			      "elongation": 109.8059,
-			      "magnitude": 13.88711
-			  },
-			  "id": "pluto"
-		      }
-		  ],
-		  "entry": {
-		      "name": "Pluto",
-		      "id": "pluto"
-		  }
-              }
-	  ],
-	  "header": [
-              "2002-03-28T09:39:00.000-05:00"
-	  ]
+    "observer": {
+      "location": {
+        "longitude": -73.2017,
+        "elevation": 258,
+        "latitude": 42.7115
       }
-  },
-	"message": "You're using the demo api key. You may run in to rate limits. Visit astronomyapi.com to get your free API keys."
+    },
+    "dates": {
+      "from": "2017-12-20T12:00:00.000-05:00",
+      "to": "2017-12-20T12:00:00.000-05:00"
+    },
+    "table": {
+      "rows": [
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "147175867.48604",
+                  "au": "0.98381"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "23° 51' 36\"",
+                    "degrees": "23.86"
+                  },
+                  "azimuth": {
+                    "string": "182° 21' 36\"",
+                    "degrees": "182.36"
+                  }
+                },
+                "constellation": {
+                  "short": "Sgr",
+                  "name": "Sagittarius",
+                  "id": "sgr"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "17.91",
+                    "string": "17h 54m 36s"
+                  },
+                  "declination": {
+                    "string": "-24° 34' 12\"",
+                    "degrees": "-23.43"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "23° 51' 36\"",
+                    "degrees": "23.86"
+                  },
+                  "azimuth": {
+                    "string": "182° 21' 36\"",
+                    "degrees": "182.36"
+                  }
+                }
+              },
+              "name": "Sun",
+              "extraInfo": {
+                "elongation": 0,
+                "magnitude": -26.77753
+              },
+              "id": "sun"
+            }
+          ],
+          "entry": {
+            "name": "Sun",
+            "id": "sun"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "403134.46542",
+                  "au": "0.00269"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "22° 50' 24\"",
+                    "degrees": "22.84"
+                  },
+                  "azimuth": {
+                    "string": "153° 29' 24\"",
+                    "degrees": "153.49"
+                  }
+                },
+                "constellation": {
+                  "short": "Sgr",
+                  "name": "Sagittarius",
+                  "id": "sgr"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "19.80",
+                    "string": "19h 48m 00s"
+                  },
+                  "declination": {
+                    "string": "-21° 52' 12\"",
+                    "degrees": "-20.13"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "22° 50' 24\"",
+                    "degrees": "22.84"
+                  },
+                  "azimuth": {
+                    "string": "153° 29' 24\"",
+                    "degrees": "153.49"
+                  }
+                }
+              },
+              "name": "Moon",
+              "extraInfo": {
+                "elongation": 26.37692,
+                "magnitude": -6.42717,
+                "phase": {
+                  "fraction": "0.063",
+                  "string": "Waxing Crescent",
+                  "angel": "26.3144"
+                }
+              },
+              "id": "moon"
+            }
+          ],
+          "entry": {
+            "name": "Moon",
+            "id": "moon"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "113458815.16969",
+                  "au": "0.75843"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "25° 28' 48\"",
+                    "degrees": "25.48"
+                  },
+                  "azimuth": {
+                    "string": "199° 39' 36\"",
+                    "degrees": "199.66"
+                  }
+                },
+                "constellation": {
+                  "short": "Oph",
+                  "name": "Ophiuchus",
+                  "id": "oph"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "16.81",
+                    "string": "16h 48m 35s"
+                  },
+                  "declination": {
+                    "string": "-20° 33' 0\"",
+                    "degrees": "-19.45"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "25° 28' 48\"",
+                    "degrees": "25.48"
+                  },
+                  "azimuth": {
+                    "string": "199° 39' 36\"",
+                    "degrees": "199.66"
+                  }
+                }
+              },
+              "name": "Mercury",
+              "extraInfo": {
+                "elongation": 15.79975,
+                "magnitude": 0.87821
+              },
+              "id": "mercury"
+            }
+          ],
+          "entry": {
+            "name": "Mercury",
+            "id": "mercury"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "254657601.15995",
+                  "au": "1.70228"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "23° 37' 48\"",
+                    "degrees": "23.63"
+                  },
+                  "azimuth": {
+                    "string": "187° 28' 48\"",
+                    "degrees": "187.48"
+                  }
+                },
+                "constellation": {
+                  "short": "Oph",
+                  "name": "Ophiuchus",
+                  "id": "oph"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "17.57",
+                    "string": "17h 34m 12s"
+                  },
+                  "declination": {
+                    "string": "-24° 40' 12\"",
+                    "degrees": "-23.33"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "23° 37' 48\"",
+                    "degrees": "23.63"
+                  },
+                  "azimuth": {
+                    "string": "187° 28' 48\"",
+                    "degrees": "187.48"
+                  }
+                }
+              },
+              "name": "Venus",
+              "extraInfo": {
+                "elongation": 4.6911,
+                "magnitude": -3.9417
+              },
+              "id": "venus"
+            }
+          ],
+          "entry": {
+            "name": "Venus",
+            "id": "venus"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "6368.60006",
+                  "au": "0.00004"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "-90° 11' 24\"",
+                    "degrees": "-89.81"
+                  },
+                  "azimuth": {
+                    "string": "360° 0' 0\"",
+                    "degrees": "360.00"
+                  }
+                },
+                "constellation": {
+                  "short": "Col",
+                  "name": "Columba",
+                  "id": "col"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "6.08",
+                    "string": "06h 04m 48s"
+                  },
+                  "declination": {
+                    "string": "-43° 28' 48\"",
+                    "degrees": "-42.52"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "-90° 11' 24\"",
+                    "degrees": "-89.81"
+                  },
+                  "azimuth": {
+                    "string": "360° 0' 0\"",
+                    "degrees": "360.00"
+                  }
+                }
+              },
+              "name": "Earth",
+              "extraInfo": {
+                "elongation": null,
+                "magnitude": null
+              },
+              "id": "earth"
+            }
+          ],
+          "entry": {
+            "name": "Earth",
+            "id": "earth"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "307035673.60110",
+                  "au": "2.05241"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "14° 19' 12\"",
+                    "degrees": "14.32"
+                  },
+                  "azimuth": {
+                    "string": "236° 38' 24\"",
+                    "degrees": "236.64"
+                  }
+                },
+                "constellation": {
+                  "short": "Vir",
+                  "name": "Virgo",
+                  "id": "vir"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "14.32",
+                    "string": "14h 19m 12s"
+                  },
+                  "declination": {
+                    "string": "-13° 6' 36\"",
+                    "degrees": "-12.89"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "14° 19' 12\"",
+                    "degrees": "14.32"
+                  },
+                  "azimuth": {
+                    "string": "236° 38' 24\"",
+                    "degrees": "236.64"
+                  }
+                }
+              },
+              "name": "Mars",
+              "extraInfo": {
+                "elongation": 51.90045,
+                "magnitude": 1.56568
+              },
+              "id": "mars"
+            }
+          ],
+          "entry": {
+            "name": "Mars",
+            "id": "mars"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "912233450.98546",
+                  "au": "6.09790"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "16° 56' 24\"",
+                    "degrees": "16.94"
+                  },
+                  "azimuth": {
+                    "string": "228° 59' 24\"",
+                    "degrees": "228.99"
+                  }
+                },
+                "constellation": {
+                  "short": "Lib",
+                  "name": "Libra",
+                  "id": "lib"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "14.84",
+                    "string": "14h 50m 24s"
+                  },
+                  "declination": {
+                    "string": "-16° 45' 0\"",
+                    "degrees": "-15.25"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "16° 56' 24\"",
+                    "degrees": "16.94"
+                  },
+                  "azimuth": {
+                    "string": "228° 59' 24\"",
+                    "degrees": "228.99"
+                  }
+                }
+              },
+              "name": "Jupiter",
+              "extraInfo": {
+                "elongation": 44.07895,
+                "magnitude": -1.76246
+              },
+              "id": "jupiter"
+            }
+          ],
+          "entry": {
+            "name": "Jupiter",
+            "id": "jupiter"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "1652817323.47405",
+                  "au": "11.04840"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "24° 47' 24\"",
+                    "degrees": "24.79"
+                  },
+                  "azimuth": {
+                    "string": "181° 13' 12\"",
+                    "degrees": "181.22"
+                  }
+                },
+                "constellation": {
+                  "short": "Sgr",
+                  "name": "Sagittarius",
+                  "id": "sgr"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "17.99",
+                    "string": "17h 59m 23s"
+                  },
+                  "declination": {
+                    "string": "-23° 28' 12\"",
+                    "degrees": "-22.53"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "24° 47' 24\"",
+                    "degrees": "24.79"
+                  },
+                  "azimuth": {
+                    "string": "181° 13' 12\"",
+                    "degrees": "181.22"
+                  }
+                }
+              },
+              "name": "Saturn",
+              "extraInfo": {
+                "elongation": 1.39304,
+                "magnitude": 0.31144
+              },
+              "id": "saturn"
+            }
+          ],
+          "entry": {
+            "name": "Saturn",
+            "id": "saturn"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "2910630059.05910",
+                  "au": "19.45636"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "-9° 12' 0\"",
+                    "degrees": "-8.80"
+                  },
+                  "azimuth": {
+                    "string": "68° 22' 48\"",
+                    "degrees": "68.38"
+                  }
+                },
+                "constellation": {
+                  "short": "Psc",
+                  "name": "Pisces",
+                  "id": "psc"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "1.52",
+                    "string": "01h 31m 12s"
+                  },
+                  "declination": {
+                    "string": "8° 55' 12\"",
+                    "degrees": "8.92"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "-9° 12' 0\"",
+                    "degrees": "-8.80"
+                  },
+                  "azimuth": {
+                    "string": "68° 22' 48\"",
+                    "degrees": "68.38"
+                  }
+                }
+              },
+              "name": "Uranus",
+              "extraInfo": {
+                "elongation": 115.63739,
+                "magnitude": 5.75653
+              },
+              "id": "uranus"
+            }
+          ],
+          "entry": {
+            "name": "Uranus",
+            "id": "uranus"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "4520956589.40955",
+                  "au": "30.22073"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "7° 27' 36\"",
+                    "degrees": "7.46"
+                  },
+                  "azimuth": {
+                    "string": "108° 4' 48\"",
+                    "degrees": "108.08"
+                  }
+                },
+                "constellation": {
+                  "short": "Aqr",
+                  "name": "Aquarius",
+                  "id": "aqr"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "22.88",
+                    "string": "22h 52m 48s"
+                  },
+                  "declination": {
+                    "string": "-9° 52' 48\"",
+                    "degrees": "-8.12"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "7° 27' 36\"",
+                    "degrees": "7.46"
+                  },
+                  "azimuth": {
+                    "string": "108° 4' 48\"",
+                    "degrees": "108.08"
+                  }
+                }
+              },
+              "name": "Neptune",
+              "extraInfo": {
+                "elongation": 72.69389,
+                "magnitude": 7.9134
+              },
+              "id": "neptune"
+            }
+          ],
+          "entry": {
+            "name": "Neptune",
+            "id": "neptune"
+          }
+        },
+        {
+          "cells": [
+            {
+              "date": "2017-12-20T12:00:00.000-05:00",
+              "distance": {
+                "fromEarth": {
+                  "km": "5145284755.70582",
+                  "au": "34.39410"
+                }
+              },
+              "position": {
+                "horizontal": {
+                  "altitude": {
+                    "string": "23° 22' 48\"",
+                    "degrees": "23.38"
+                  },
+                  "azimuth": {
+                    "string": "161° 10' 12\"",
+                    "degrees": "161.17"
+                  }
+                },
+                "constellation": {
+                  "short": "Sgr",
+                  "name": "Sagittarius",
+                  "id": "sgr"
+                },
+                "equatorial": {
+                  "rightAscension": {
+                    "hours": "19.31",
+                    "string": "19h 18m 36s"
+                  },
+                  "declination": {
+                    "string": "-22° 15' 36\"",
+                    "degrees": "-21.74"
+                  }
+                },
+                "horizonal": {
+                  "altitude": {
+                    "string": "23° 22' 48\"",
+                    "degrees": "23.38"
+                  },
+                  "azimuth": {
+                    "string": "161° 10' 12\"",
+                    "degrees": "161.17"
+                  }
+                }
+              },
+              "name": "Pluto",
+              "extraInfo": {
+                "elongation": 19.40497,
+                "magnitude": 14.3281
+              },
+              "id": "pluto"
+            }
+          ],
+          "entry": {
+            "name": "Pluto",
+            "id": "pluto"
+          }
+        }
+      ],
+      "header": [
+        "2017-12-20T12:00:00.000-05:00"
+      ]
     }
-*/
+  },
+  "message": "You're using the demo api key. You may run in to rate limits. Visit astronomyapi.com to get your free API keys."
+}
+
     drawBodies(data.data, geocentric);
 }
