@@ -36,10 +36,10 @@ function GET(date, time="00:00:00") {
 	    "X-RapidAPI-Host": "astronomy.p.rapidapi.com"
 	}
     };
-
-    return $.ajax(settings).done(function (response) {
+    var answer;
+    $.ajax(settings).done(function (response) {
     console.log(response);
-	return response;
+	answer = response;
    });
 }
 
