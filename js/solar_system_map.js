@@ -15,7 +15,7 @@ const colorSwitch = {
     "Sun": "yellow"
 };
 
-const SCALE = canvas.width / 0.8;
+const SCALE = canvas.width / 50;
 
 function initializeCanvas() {
     canvas.width = canvas.width;
@@ -27,7 +27,7 @@ function initializeCanvas() {
 function GET(date, time="00:00:00") {
     var timeFormatted = time.replace(/:/g, "%3A") + "%3A00";
     const settings = {
-	"async": true,
+	"async": false,
 	"crossDomain": true,
 	"url": `https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=42.7115&longitude=-73.2017&from_date=${date}&to_date=${date}&elevation=285&time=${timeFormatted}`,
 	"method": "GET",
@@ -41,6 +41,7 @@ function GET(date, time="00:00:00") {
     console.log(response);
 	answer = response;
    });
+   return answer;
 }
 
 function RAtoAngle(RA) {
