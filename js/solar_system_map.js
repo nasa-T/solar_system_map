@@ -1,6 +1,7 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
+// Setting the colors of the planets
 const colorSwitch = {
     "Mercury": "gray",
     "Venus": "coral",
@@ -25,10 +26,12 @@ function initializeCanvas() {
 
 
 function GET(date, time="00:00:00") {
+    // Reformat time to usee in url
     var timeFormatted = time.replace(/:/g, "%3A") + "%3A00";
     const settings = {
 	"async": false,
 	"crossDomain": true,
+	// Use date and timeFormatted variables in url
 	"url": `https://astronomy.p.rapidapi.com/api/v2/bodies/positions?latitude=42.7115&longitude=-73.2017&from_date=${date}&to_date=${date}&elevation=285&time=${timeFormatted}`,
 	"method": "GET",
 	"headers": {
@@ -36,6 +39,7 @@ function GET(date, time="00:00:00") {
 	    "X-RapidAPI-Host": "astronomy.p.rapidapi.com"
 	}
     };
+    // initialize answer to be returned
     var answer;
     $.ajax(settings).done(function (response) {
     console.log(response);
@@ -45,22 +49,27 @@ function GET(date, time="00:00:00") {
 }
 
 function RAtoAngle(RA) {
-    console.log(RA / 24 * 360);
-    return RA / 24 * 360;
+    // 15 degrees per hour
+    return RA * 15;
 }
 
 function earthFrameLoc(RA, dist) {
     return {
+	// cos and sin take inputs in radians; location from earth's reference frame
 	x: dist*Math.cos(RA * Math.PI / 180),
 	y: dist*Math.sin(RA * Math.PI / 180)
     };
 }
 
 function makeBodies(data, geocentric) {
+    // array to append objects with their properties to
     let bodies = [];
+    // we want the earth in the center if geocentric is true
     if (geocentric) {
 	for (var i = 0; i < data.table.rows.length; i++) {
+	    // grab object's data
 	    var object = data.table.rows[i].cells[0];
+	    // earth is a special case; can't be a distance or angle from itself, so position is hard coded in the center
 	    if (object.name == "Earth") {
 		bodies.push({
 		    color: colorSwitch.Earth,
@@ -75,10 +84,12 @@ function makeBodies(data, geocentric) {
 	    var objName = object.name;
 	    var objPos = earthFrameLoc(RAtoAngle(parseFloat(object.position.equatorial.rightAscension.hours)), parseFloat(object.distance.fromEarth.au));
 	    console.log(objName, Math.sqrt(objPos.x**2 + objPos.y**2));
+	    // brightness to scale with radius
 	    var mag = parseFloat(object.extraInfo.magnitude);
 	    if (object.name == "Sun") {
 		bodies.push({
 		    color: colorSwitch.Sun,
+		    // special case; sun is too bright to have its radius scale with its brightness
 		    radius: 200 / SCALE,
 		    x: objPos.x,
 		    y: objPos.y,
@@ -88,6 +99,7 @@ function makeBodies(data, geocentric) {
 	    }
 	    bodies.push({
 		color: colorSwitch[objName],
+		// magnitude to flux conversion (kind of)
 		radius: Math.sqrt(10**(mag/-2.5)),
 		x: objPos.x,
 		y: objPos.y,
@@ -95,6 +107,7 @@ function makeBodies(data, geocentric) {
 	    });
 	}
     } else {
+	// the sun needs to be found and its position is necessary to save as a variable for the other objects
 	let sunPos;
 	let theSun;
 	for (var i = 0; i < data.table.rows.length; i++) {
@@ -114,9 +127,11 @@ function makeBodies(data, geocentric) {
 	}
 	for (var i = 0; i < data.table.rows.length; i++) {
 	    var object = data.table.rows[i].cells[0];
+	    // don't double count the sun
 	    if (object.name == "Sun") {
 		continue;
 	    }
+	    // earth is a special case since the data I have is distance and angle relative to the earth, so I rather not try to reference that data for earth
 	    if (object.name == "Earth") {
 		bodies.push({
 		    color: colorSwitch.Earth,
@@ -133,12 +148,14 @@ function makeBodies(data, geocentric) {
 	    bodies.push({
 		color: colorSwitch[objName],
 		radius: Math.sqrt(10**(mag/-2.5)),
+		// the positions of the planets relative to the sun are the object's position relative to earth - the sun's position relative to earth
 		x: objPos.x - sunPos.x,
 		y: objPos.y - sunPos.y,
 		dist: object.distance.fromEarth.au
 	    });
 	}
     }
+    // testing stuff with the moon...
     // for (var i = 0; i < bodies.length; i++) {
     // 	if (bodies[i].color == "silver") {
     // 	    bodies[i].radius = 300 / SCALE;
@@ -149,17 +166,21 @@ function makeBodies(data, geocentric) {
 }
 
 function drawBodies(data, geocentric) {
+    // get bodies array
     const bodies = makeBodies(data, geocentric);
+    // initialize scaling and coordinates of canvas
     initializeCanvas();
     for (var i = 0; i < bodies.length; i++) {
 	var body = bodies[i];
+	// loop through all bodies and draw them as circles
 	ctx.beginPath();
-	ctx.arc(body.x, body.y, 0.25, 0, 2 * Math.PI);
-	//ctx.arc(body.x, body.y, body.radius / SCALE, 0, 2 * Math.PI);
+	//ctx.arc(body.x, body.y, 0.25, 0, 2 * Math.PI);
+	ctx.arc(body.x, body.y, body.radius / SCALE, 0, 2 * Math.PI);
 	ctx.strokeStyle = body.color;
 	ctx.stroke();
 	ctx.fillStyle = body.color;
 	ctx.fill();
+	// draw the orbits of the bodies
 	ctx.beginPath();
 	ctx.arc(0, 0, Math.sqrt(body.x**2 + body.y**2), 0, 2 * Math.PI);
 	ctx.strokeStyle = "black";
@@ -171,7 +192,9 @@ function drawBodies(data, geocentric) {
 function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
+    // get date and time from user input
     // const data = GET(date_time_array[0], date_time_array[1]);
+    // test data
     const data = {
   "data": {
     "observer": {
@@ -860,6 +883,6 @@ function test(geocentric) {
   },
   "message": "You're using the demo api key. You may run in to rate limits. Visit astronomyapi.com to get your free API keys."
 }
-
+    // drawBodies calls on other functions to use the data from GET
     drawBodies(data.data, geocentric);
 }
