@@ -15,7 +15,7 @@ const colorSwitch = {
     "Sun": "yellow"
 };
 
-const SCALE = canvas.width / 60;
+const SCALE = canvas.width / 0.8;
 
 function initializeCanvas() {
     canvas.width = canvas.width;
@@ -37,14 +37,14 @@ function GET(date, time="00:00:00") {
 	}
     };
 
-    //$.ajax(settings).done(function (response) {
-    //console.log(response);
-//	return response;
-  //  });
+    $.ajax(settings).done(function (response) {
+    console.log(response);
+	return response;
+   });
 }
 
 function RAtoAngle(RA) {
-    return RA * 15;
+    return RA / 24 * 360;
 }
 
 function earthFrameLoc(RA, dist) {
@@ -104,7 +104,7 @@ function makeBodies(data, geocentric) {
 		    y: 0,
 		    dist: object.distance.fromEarth.au		    
 		});
-		sunPos = earthFrameLoc(RAtoAngle(parseFloat(object.position.equatorial.rightAscension.hours)), parseFloat(object.distance.fromEarth.au));
+		sunPos = earthFrameLoc(RAtoAngle(object.position.equatorial.rightAscension.hours), object.distance.fromEarth.au);
 		theSun = object;
 		break;
 	    }
@@ -125,7 +125,7 @@ function makeBodies(data, geocentric) {
 		continue;
 	    }
 	    var objName = object.name;
-	    var objPos = earthFrameLoc(RAtoAngle(parseFloat(object.position.equatorial.rightAscension.hours)), parseFloat(object.distance.fromEarth.au));
+	    var objPos = earthFrameLoc(RAtoAngle(object.position.equatorial.rightAscension.hours), object.distance.fromEarth.au);
 	    var mag = parseFloat(object.extraInfo.magnitude);
 	    bodies.push({
 		color: colorSwitch[objName],
@@ -168,8 +168,8 @@ function drawBodies(data, geocentric) {
 function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
-    // const data = GET(date_time_array[0], date_time_array[1]);
-    const data = {
+    const data = GET(date_time_array[0], date_time_array[1]);
+    /* const data = {
   "data": {
       "observer": {
 	  "location": {
@@ -857,6 +857,6 @@ function test(geocentric) {
   },
 	"message": "You're using the demo api key. You may run in to rate limits. Visit astronomyapi.com to get your free API keys."
     }
-
+*/
     drawBodies(data.data, geocentric);
 }
