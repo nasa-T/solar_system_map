@@ -207,6 +207,13 @@ var laData;
 function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
+    if (typeof laData !== 'undefined' || laData !== null) {
+      drawBodies(laData.data, geocentric);
+      laData.geocentric = geocentric;
+      console.log('nothing')
+      return;
+    }
+    console.log('something');
     // get date and time from user input
     // const data = GET(date_time_array[0], date_time_array[1]);
     // test data
