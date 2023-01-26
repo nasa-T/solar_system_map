@@ -208,6 +208,7 @@ function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
     if (laData !== {}) {
+      console.log(laData);
       drawBodies(laData.data, geocentric);
       laData.geocentric = geocentric;
       console.log('nothing')
