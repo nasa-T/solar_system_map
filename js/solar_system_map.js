@@ -203,11 +203,11 @@ function drawBodies(data, geocentric) {
 
 }
 
-var laData;
+var laData = {};
 function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
-    if (typeof laData !== 'undefined' || laData !== null) {
+    if (laData !== {}) {
       drawBodies(laData.data, geocentric);
       laData.geocentric = geocentric;
       console.log('nothing')
