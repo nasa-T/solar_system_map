@@ -16,6 +16,21 @@ const colorSwitch = {
     "Sun": "yellow"
 };
 
+const sizeSwitch = {
+    "Mercury": 30,
+    "Venus": 100,
+    "Earth": 100,
+    "Mars": 50,
+    "Jupiter": 500,
+    "Saturn": 400,
+    "Uranus": 200,
+    "Neptune": 100,
+    "Pluto": 30,
+    "Moon": 30,
+    "Sun": 100
+
+};
+
 const SCALE = canvas.width / 50;
 
 function initializeCanvas() {
@@ -73,7 +88,7 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Earth") {
 		bodies.push({
 		    color: colorSwitch.Earth,
-		    radius: 100 / SCALE,
+		    radius: sizeSwitch.Earth / SCALE,
 		    x: 0,
 		    y: 0,
 		    dist: 0		    
@@ -90,7 +105,7 @@ function makeBodies(data, geocentric) {
 		bodies.push({
 		    color: colorSwitch.Sun,
 		    // special case; sun is too bright to have its radius scale with its brightness
-		    radius: 200 / SCALE,
+		    radius: sizeSwitch.Sun / SCALE,
 		    x: objPos.x,
 		    y: objPos.y,
 		    dist: object.distance.fromEarth.au		    
@@ -100,7 +115,7 @@ function makeBodies(data, geocentric) {
 	    bodies.push({
 		color: colorSwitch[objName],
 		// magnitude to flux conversion (kind of)
-		radius: Math.sqrt(10**(mag/-2.5)),
+		radius: sizeSwitch[objName] / SCALE,
 		x: objPos.x,
 		y: objPos.y,
 		dist: object.distance.fromEarth.au		
@@ -115,7 +130,7 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Sun") {
 		bodies.push({
 		    color: colorSwitch.Sun,
-		    radius: 200 / SCALE,
+		    radius: sizeSwitch.Sun / SCALE,
 		    x: 0,
 		    y: 0,
 		    dist: object.distance.fromEarth.au		    
@@ -135,7 +150,7 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Earth") {
 		bodies.push({
 		    color: colorSwitch.Earth,
-		    radius: 100 / SCALE,
+		    radius: sizeSwitch.Earth / SCALE,
 		    x: -sunPos.x,
 		    y: -sunPos.y,
 		    dist: 0		    
@@ -147,7 +162,7 @@ function makeBodies(data, geocentric) {
 	    var mag = parseFloat(object.extraInfo.magnitude);
 	    bodies.push({
 		color: colorSwitch[objName],
-		radius: Math.sqrt(10**(mag/-2.5)),
+		radius: sizeSwitch[objName] / SCALE,
 		// the positions of the planets relative to the sun are the object's position relative to earth - the sun's position relative to earth
 		x: objPos.x - sunPos.x,
 		y: objPos.y - sunPos.y,
