@@ -31,7 +31,7 @@ const sizeSwitch = {
 
 };
 
-var SCALE = canvas.width / 10;
+var SCALE = canvas.width / 1.5;
 
 function initializeCanvas() {
     canvas.width = canvas.width;
