@@ -16,13 +16,16 @@
         </label>
 
         <input type="datetime-local" id="dateTime"></input>
-	<button onclick="test()">test</button>
         <button onclick="test(true)">
             Geocentric
         </button>
         <button onclick="test(false)">
             Heliocentric
         </button>
+    </div>
+    <div>
+	<button onclick="zoom(1)">Zoom In</button>
+	<button onclick="zoom(-1)">Zoom Out</button>
     </div>
     </main>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript">

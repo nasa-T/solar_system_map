@@ -31,7 +31,7 @@ const sizeSwitch = {
 
 };
 
-const SCALE = canvas.width / 10;
+var SCALE = canvas.width / 10;
 
 function initializeCanvas() {
     canvas.width = canvas.width;
@@ -203,6 +203,7 @@ function drawBodies(data, geocentric) {
 
 }
 
+var laData;
 function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
@@ -899,4 +900,17 @@ function test(geocentric) {
 }
     // drawBodies calls on other functions to use the data from GET
     drawBodies(data.data, geocentric);
+    laData = {data: data, geocentric: geocentric};
 }
+
+
+function zoom(direction) {
+    if (direction > 0) {
+        SCALE *= 1.1;
+    }
+    if (direction < 0) {
+        SCALE /= 1.1;
+    }
+    drawBodies(laData.data.data, laData.geocentric);
+}
+
