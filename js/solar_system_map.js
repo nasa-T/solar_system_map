@@ -209,7 +209,7 @@ function test(geocentric) {
     const date_time_array = date_time.split("T");
     if (Object.keys(laData).length > 0) {
       console.log(laData);
-      drawBodies(laData.data, geocentric);
+      drawBodies(laData.data.data, geocentric);
       laData.geocentric = geocentric;
       console.log('nothing')
       return;
