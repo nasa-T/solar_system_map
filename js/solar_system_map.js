@@ -16,26 +16,22 @@ const colorSwitch = {
     "Sun": "yellow"
 };
 
-<<<<<<< HEAD
 const sizeSwitch = {
-    "Mercury": 30,
-    "Venus": 100,
-    "Earth": 100,
-    "Mars": 50,
-    "Jupiter": 500,
-    "Saturn": 400,
-    "Uranus": 200,
-    "Neptune": 100,
-    "Pluto": 30,
-    "Moon": 30,
-    "Sun": 100
+    "Mercury": 0.075,
+    "Venus": 0.2,
+    "Earth": 0.2,
+    "Mars": 0.1,
+    "Jupiter": 0.8,
+    "Saturn": 0.7,
+    "Uranus": 0.6,
+    "Neptune": 0.5,
+    "Pluto": 0.3,
+    "Moon": 0.02,
+    "Sun": 0.2
 
 };
 
-const SCALE = canvas.width / 50;
-=======
-const SCALE = canvas.width / 20;
->>>>>>> 4cf673283644c87ee9054467a466f086041b3617
+const SCALE = canvas.width / 10;
 
 function initializeCanvas() {
     canvas.width = canvas.width;
@@ -92,11 +88,7 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Earth") {
 		bodies.push({
 		    color: colorSwitch.Earth,
-<<<<<<< HEAD
-		    radius: sizeSwitch.Earth / SCALE,
-=======
-		    radius: 70 / SCALE,
->>>>>>> 4cf673283644c87ee9054467a466f086041b3617
+		    radius: sizeSwitch.Earth,
 		    x: 0,
 		    y: 0,
 		    dist: 0		    
@@ -113,11 +105,7 @@ function makeBodies(data, geocentric) {
 		bodies.push({
 		    color: colorSwitch.Sun,
 		    // special case; sun is too bright to have its radius scale with its brightness
-<<<<<<< HEAD
-		    radius: sizeSwitch.Sun / SCALE,
-=======
-		    radius: 70 / SCALE,
->>>>>>> 4cf673283644c87ee9054467a466f086041b3617
+		    radius: sizeSwitch.Sun,
 		    x: objPos.x,
 		    y: objPos.y,
 		    dist: object.distance.fromEarth.au		    
@@ -127,7 +115,7 @@ function makeBodies(data, geocentric) {
 	    bodies.push({
 		color: colorSwitch[objName],
 		// magnitude to flux conversion (kind of)
-		radius: sizeSwitch[objName] / SCALE,
+		radius: sizeSwitch[objName],
 		x: objPos.x,
 		y: objPos.y,
 		dist: object.distance.fromEarth.au		
@@ -142,11 +130,7 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Sun") {
 		bodies.push({
 		    color: colorSwitch.Sun,
-<<<<<<< HEAD
-		    radius: sizeSwitch.Sun / SCALE,
-=======
-		    radius: 70 / SCALE,
->>>>>>> 4cf673283644c87ee9054467a466f086041b3617
+		    radius: sizeSwitch.Sun,
 		    x: 0,
 		    y: 0,
 		    dist: object.distance.fromEarth.au		    
@@ -166,11 +150,7 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Earth") {
 		bodies.push({
 		    color: colorSwitch.Earth,
-<<<<<<< HEAD
-		    radius: sizeSwitch.Earth / SCALE,
-=======
-		    radius: 70 / SCALE,
->>>>>>> 4cf673283644c87ee9054467a466f086041b3617
+		    radius: sizeSwitch.Earth,
 		    x: -sunPos.x,
 		    y: -sunPos.y,
 		    dist: 0		    
@@ -182,7 +162,7 @@ function makeBodies(data, geocentric) {
 	    var mag = parseFloat(object.extraInfo.magnitude);
 	    bodies.push({
 		color: colorSwitch[objName],
-		radius: sizeSwitch[objName] / SCALE,
+		radius: sizeSwitch[objName],
 		// the positions of the planets relative to the sun are the object's position relative to earth - the sun's position relative to earth
 		x: objPos.x - sunPos.x,
 		y: objPos.y - sunPos.y,
@@ -191,11 +171,11 @@ function makeBodies(data, geocentric) {
 	}
     }
     // testing stuff with the moon...
-    for (var i = 0; i < bodies.length; i++) {
+    /* for (var i = 0; i < bodies.length; i++) {
    	if (bodies[i].color == "silver") {
-    	    bodies[i].radius = 30 / SCALE;
+    	    bodies[i].radius;
     	}
-    }
+    } */
     return bodies;
 }
 
@@ -209,7 +189,7 @@ function drawBodies(data, geocentric) {
 	// loop through all bodies and draw them as circles
 	ctx.beginPath();
 	//ctx.arc(body.x, body.y, 0.25, 0, 2 * Math.PI);
-	ctx.arc(body.x, body.y, body.radius / SCALE, 0, 2 * Math.PI);
+	ctx.arc(body.x, body.y, body.radius, 0, 2 * Math.PI);
 	ctx.strokeStyle = body.color;
 	ctx.stroke();
 	ctx.fillStyle = body.color;
