@@ -15,7 +15,7 @@ const colorSwitch = {
     "Moon": "silver",
     "Sun": "yellow"
 };
-
+/*
 const sizeSwitch = {
     "Mercury": 0.075,
     "Venus": 0.2,
@@ -29,7 +29,23 @@ const sizeSwitch = {
     "Moon": 0.02,
     "Sun": 0.2
 
-};
+}; */
+
+// sizes to scale
+const AU = 1.496e8;
+const sizeSwitch = {
+    "Mercury": 4878 / AU / 2,
+    "Venus": 12104 / AU / 2,
+    "Earth": 12756 / AU / 2,
+    "Mars": 6787 / AU / 2,
+    "Jupiter": 142796 / AU / 2,
+    "Saturn": 120660 / AU / 2,
+    "Uranus": 51118 / AU / 2,
+    "Neptune": 48600 / AU / 2,
+    "Pluto": 2274 / AU / 2,
+    "Moon": 1737.4 / AU,
+    "Sun": 695700 / AU
+}
 
 var SCALE = canvas.width / 0.7;
 
