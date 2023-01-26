@@ -207,7 +207,7 @@ var laData = {};
 function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
-    if (laData !== {}) {
+    if (Object.keys(laData).length > 0) {
       console.log(laData);
       drawBodies(laData.data, geocentric);
       laData.geocentric = geocentric;
