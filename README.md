@@ -15,3 +15,6 @@ This script is dependent on the ajax module, but there is no need to download it
 - Press heliocentric to display the solar system with the Sun in the middle
 - The geocentric button places the Earth in the middle
 - Zoom in and zoom out buttons do as they say!
+
+## Author
+Tasan Smith-Gandy
