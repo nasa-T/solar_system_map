@@ -180,13 +180,18 @@ function makeBodies(data, geocentric) {
 }
 
 function drawBodies(data, geocentric) {
-    // get bodies array
-    const bodies = makeBodies(data, geocentric);
-    // initialize scaling and coordinates of canvas
-    initializeCanvas();
-    for (var i = 0; i < bodies.length; i++) {
+  // get bodies array
+  const bodies = makeBodies(data, geocentric);
+  // initialize scaling and coordinates of canvas
+  initializeCanvas();
+  for (var i = 0; i < bodies.length; i++) {
 	var body = bodies[i];
-	// loop through all bodies and draw them as circles
+	// draw the orbits of the bodies
+	ctx.beginPath();
+	ctx.arc(0, 0, Math.sqrt(body.x**2 + body.y**2), 0, 2 * Math.PI);
+	ctx.strokeStyle = "black";
+	ctx.stroke();
+  // loop through all bodies and draw them as circles
 	ctx.beginPath();
 	//ctx.arc(body.x, body.y, 0.25, 0, 2 * Math.PI);
 	ctx.arc(body.x, body.y, body.radius, 0, 2 * Math.PI);
@@ -194,12 +199,7 @@ function drawBodies(data, geocentric) {
 	ctx.stroke();
 	ctx.fillStyle = body.color;
 	ctx.fill();
-	// draw the orbits of the bodies
-	ctx.beginPath();
-	ctx.arc(0, 0, Math.sqrt(body.x**2 + body.y**2), 0, 2 * Math.PI);
-	ctx.strokeStyle = "black";
-	ctx.stroke();
-    }
+  }
 
 }
 
@@ -207,14 +207,13 @@ var laData = {};
 function test(geocentric) {
     const date_time = document.getElementById("dateTime").value.toString();
     const date_time_array = date_time.split("T");
+    // if the data has already been made, don't recalculate it
     if (Object.keys(laData).length > 0) {
       console.log(laData);
       drawBodies(laData.data.data, geocentric);
       laData.geocentric = geocentric;
-      console.log('nothing')
       return;
     }
-    console.log('something');
     // get date and time from user input
     // const data = GET(date_time_array[0], date_time_array[1]);
     // test data
@@ -908,16 +907,17 @@ function test(geocentric) {
 }
     // drawBodies calls on other functions to use the data from GET
     drawBodies(data.data, geocentric);
+    // save the data with its settings
     laData = {data: data, geocentric: geocentric};
 }
 
 
 function zoom(direction) {
     if (direction > 0) {
-        SCALE *= 1.1;
+        SCALE *= 1.2;
     }
     if (direction < 0) {
-        SCALE /= 1.1;
+        SCALE /= 1.2;
     }
     drawBodies(laData.data.data, laData.geocentric);
 }
