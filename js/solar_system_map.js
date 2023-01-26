@@ -203,10 +203,10 @@ function drawBodies(data, geocentric) {
   for (var i = 0; i < bodies.length; i++) {
 	var body = bodies[i];
 	// draw the orbits of the bodies
-	ctx.beginPath();
-	ctx.arc(0, 0, Math.sqrt(body.x**2 + body.y**2), 0, 2 * Math.PI);
-	ctx.strokeStyle = "black";
-	ctx.stroke();
+	// ctx.beginPath();
+	// ctx.arc(0, 0, Math.sqrt(body.x**2 + body.y**2), 0, 2 * Math.PI);
+	// ctx.strokeStyle = "black";
+	// ctx.stroke();
   // loop through all bodies and draw them as circles
 	ctx.beginPath();
 	//ctx.arc(body.x, body.y, 0.25, 0, 2 * Math.PI);
