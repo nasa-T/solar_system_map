@@ -16,6 +16,7 @@ const colorSwitch = {
     "Sun": "yellow"
 };
 
+<<<<<<< HEAD
 const sizeSwitch = {
     "Mercury": 30,
     "Venus": 100,
@@ -32,6 +33,9 @@ const sizeSwitch = {
 };
 
 const SCALE = canvas.width / 50;
+=======
+const SCALE = canvas.width / 20;
+>>>>>>> 4cf673283644c87ee9054467a466f086041b3617
 
 function initializeCanvas() {
     canvas.width = canvas.width;
@@ -88,7 +92,11 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Earth") {
 		bodies.push({
 		    color: colorSwitch.Earth,
+<<<<<<< HEAD
 		    radius: sizeSwitch.Earth / SCALE,
+=======
+		    radius: 70 / SCALE,
+>>>>>>> 4cf673283644c87ee9054467a466f086041b3617
 		    x: 0,
 		    y: 0,
 		    dist: 0		    
@@ -105,7 +113,11 @@ function makeBodies(data, geocentric) {
 		bodies.push({
 		    color: colorSwitch.Sun,
 		    // special case; sun is too bright to have its radius scale with its brightness
+<<<<<<< HEAD
 		    radius: sizeSwitch.Sun / SCALE,
+=======
+		    radius: 70 / SCALE,
+>>>>>>> 4cf673283644c87ee9054467a466f086041b3617
 		    x: objPos.x,
 		    y: objPos.y,
 		    dist: object.distance.fromEarth.au		    
@@ -130,7 +142,11 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Sun") {
 		bodies.push({
 		    color: colorSwitch.Sun,
+<<<<<<< HEAD
 		    radius: sizeSwitch.Sun / SCALE,
+=======
+		    radius: 70 / SCALE,
+>>>>>>> 4cf673283644c87ee9054467a466f086041b3617
 		    x: 0,
 		    y: 0,
 		    dist: object.distance.fromEarth.au		    
@@ -150,7 +166,11 @@ function makeBodies(data, geocentric) {
 	    if (object.name == "Earth") {
 		bodies.push({
 		    color: colorSwitch.Earth,
+<<<<<<< HEAD
 		    radius: sizeSwitch.Earth / SCALE,
+=======
+		    radius: 70 / SCALE,
+>>>>>>> 4cf673283644c87ee9054467a466f086041b3617
 		    x: -sunPos.x,
 		    y: -sunPos.y,
 		    dist: 0		    
@@ -171,12 +191,11 @@ function makeBodies(data, geocentric) {
 	}
     }
     // testing stuff with the moon...
-    // for (var i = 0; i < bodies.length; i++) {
-    // 	if (bodies[i].color == "silver") {
-    // 	    bodies[i].radius = 300 / SCALE;
-    // 	    bodies[i].color = "green";
-    // 	}
-    // }
+    for (var i = 0; i < bodies.length; i++) {
+   	if (bodies[i].color == "silver") {
+    	    bodies[i].radius = 30 / SCALE;
+    	}
+    }
     return bodies;
 }
 
