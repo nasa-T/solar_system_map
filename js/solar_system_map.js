@@ -15,7 +15,7 @@ const colorSwitch = {
     "Moon": "silver",
     "Sun": "yellow"
 };
-/*
+
 const sizeSwitch = {
     "Mercury": 0.075,
     "Venus": 0.2,
@@ -29,8 +29,8 @@ const sizeSwitch = {
     "Moon": 0.02,
     "Sun": 0.2
 
-}; */
-
+};
+/*
 // sizes to scale
 const AU = 1.496e8;
 const sizeSwitch = {
@@ -46,7 +46,7 @@ const sizeSwitch = {
     "Moon": 1737.4 / AU,
     "Sun": 695700 / AU
 }
-
+*/
 var SCALE = canvas.width / 0.7;
 
 function initializeCanvas() {
@@ -203,10 +203,10 @@ function drawBodies(data, geocentric) {
   for (var i = 0; i < bodies.length; i++) {
 	var body = bodies[i];
 	// draw the orbits of the bodies
-	// ctx.beginPath();
-	// ctx.arc(0, 0, Math.sqrt(body.x**2 + body.y**2), 0, 2 * Math.PI);
-	// ctx.strokeStyle = "black";
-	// ctx.stroke();
+	ctx.beginPath();
+	ctx.arc(0, 0, Math.sqrt(body.x**2 + body.y**2), 0, 2 * Math.PI);
+	ctx.strokeStyle = "black";
+	ctx.stroke();
   // loop through all bodies and draw them as circles
 	ctx.beginPath();
 	//ctx.arc(body.x, body.y, 0.25, 0, 2 * Math.PI);
