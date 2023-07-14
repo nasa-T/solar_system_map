@@ -231,9 +231,9 @@ function test(geocentric) {
       return;
     }
     // get date and time from user input
-    // const data = GET(date_time_array[0], date_time_array[1]);
+    const data = GET(date_time_array[0], date_time_array[1]);
     // test data
-    const data = {
+    /* const data = {
   "data": {
     "observer": {
       "location": {
@@ -920,7 +920,7 @@ function test(geocentric) {
     }
   },
   "message": "You're using the demo api key. You may run in to rate limits. Visit astronomyapi.com to get your free API keys."
-}
+} */
     // drawBodies calls on other functions to use the data from GET
     drawBodies(data.data, geocentric);
     // save the data with its settings
